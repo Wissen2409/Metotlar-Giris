@@ -1,0 +1,14 @@
+/Users/emrahelis/Metotlar-Giris/bin/Debug/net8.0/Metotlar-Giris
+/Users/emrahelis/Metotlar-Giris/bin/Debug/net8.0/Metotlar-Giris.deps.json
+/Users/emrahelis/Metotlar-Giris/bin/Debug/net8.0/Metotlar-Giris.runtimeconfig.json
+/Users/emrahelis/Metotlar-Giris/bin/Debug/net8.0/Metotlar-Giris.dll
+/Users/emrahelis/Metotlar-Giris/bin/Debug/net8.0/Metotlar-Giris.pdb
+/Users/emrahelis/Metotlar-Giris/obj/Debug/net8.0/Metotlar-Giris.GeneratedMSBuildEditorConfig.editorconfig
+/Users/emrahelis/Metotlar-Giris/obj/Debug/net8.0/Metotlar-Giris.AssemblyInfoInputs.cache
+/Users/emrahelis/Metotlar-Giris/obj/Debug/net8.0/Metotlar-Giris.AssemblyInfo.cs
+/Users/emrahelis/Metotlar-Giris/obj/Debug/net8.0/Metotlar-Giris.csproj.CoreCompileInputs.cache
+/Users/emrahelis/Metotlar-Giris/obj/Debug/net8.0/Metotlar-Giris.dll
+/Users/emrahelis/Metotlar-Giris/obj/Debug/net8.0/refint/Metotlar-Giris.dll
+/Users/emrahelis/Metotlar-Giris/obj/Debug/net8.0/Metotlar-Giris.pdb
+/Users/emrahelis/Metotlar-Giris/obj/Debug/net8.0/Metotlar-Giris.genruntimeconfig.cache
+/Users/emrahelis/Metotlar-Giris/obj/Debug/net8.0/ref/Metotlar-Giris.dll
