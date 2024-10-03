@@ -27,7 +27,7 @@
 
 /*erişim belirteci + static/ yada static olmama + geri dönüş tipi / yada değer dönmeyecekse void + Metot Adı(Metot Parametreleri){
 
-
+// Metot içi
 
 }*/
 
@@ -36,11 +36,11 @@
 // Erişim belirteçler: bir metodun hangi katmandan yada nereden erişebileceğini belirler
 // Erişim belirteçler şunlardır
 
-// Public 
-// Private
-// Protected
-// Protected Internal
-// Internal
+// Public : Her katömandan erişilebilir.
+// Private : Sadece kendi katmanında erişilir diğer tüm yerlere erişimi kapalıdır
+// Protected : Kalıtım hiyerarşisi olan katmandan erişilir. Diğer katmanlara kapalıdır
+// Protected Internal : Ya kalıtım hiyerarşisi yada dış bir paket tarafından erişilir, diğer yerlere kapalıdır
+// Internal : Sadece dış bir paket tarafından erişilir.
 
 // yukarıdaki erişim belirteçlerden bir süre  sadece public olanı kullanacağız, diğer erişim belirteçlere daha sonra deyineceğiz.
 
@@ -78,9 +78,46 @@ Aynı şekilde metot parametrelerinde de bir genel geçer kural vardır. Metot p
  
 
 */
-string ters = TersCevir("wissen besiktas");
 
+// TersCevir metodu, string parametre alıp, string değer döndürüyor
+
+string ters = TersCevir("wissen besiktas");
+string ters1 = TersCevir("Hilltown");
+
+TersCevir("ters");
+
+//dönen değeri alıp, ekrana yazdırdık
 Console.WriteLine(ters);
+Console.WriteLine(ters1);
+
+
+
+// metot yazıldığında bellekte kaplamaz ve derleyici tarafından derlenmez
+// ancak ne zaman çağırılırsa o zaman bellekte belli bir miktar alan işgal eder.
+// Ne kadar işgal eder : İçerinde kullanılan tiplere bağlı olarak değişir.
+
+
+// Metotların faydaları : Kod tekrarı önlemek(kod tekrarını önlemek yazılım geliştirmede en önemli kavramlardan bir tanesidir.)
+// Kod tekrarı yapılan bir projede, hata çıkma oranı çok fazladır. 
+
+// Bakım kolaylığı : Metotlar kod içerisinde bakım kolaylığı sağlar
+// çok tekrar ettiğiniz kod bloklarını metot haline getirirseniz, o kod bloğunda bir sorun çıkarsa
+// sadece metot içeriğini değiştiriemk bakım anlamında yeterli olacaktır.
+
+
+// Örnek 1 : İki sayı al ve topla
+
+int toplam = Topla(50,80);
+Console.WriteLine(toplam);
+
+// Örnek 2 : YariÇap al ve dairenin alanını hesapla
+double alan = AlanHesapla(30);
+Console.WriteLine(alan);
+
+// Örnek 3 : Max ve min değeri al ve random bir değer üret 
+int random = RandomDeger(50,700);
+Console.WriteLine(random);
+
 
 
 
@@ -92,9 +129,40 @@ static string TersCevir(string deger ){
     {
         ters+=deger[i];
     }
+
+    // geriye değer döndüren metotlarda return ifadesi kullanılır
     return ters;
 }
 
+// Örnek 1 : Parametre olarak iki tane int tipinde değer alan ve geriye int dönen bir 
+//metot yazınız
+// bu metot, aldığı iki parametreyi birbiri ile toplayıp, toplamı geriye döndürsün
 
+static int Topla(int a,int b){
 
+    int toplam = a+b;
+    return toplam;
+
+}
+
+// Örnek 2 :  bir tane int tipinde yarı çap değeri alıp, dairenin alanını hesaplayıp 
+//geriye değer döndüren metodu yazınız
+
+static double AlanHesapla(int yaricap){
+
+    double hesap = Math.PI*yaricap*yaricap;
+
+    
+    return hesap;
+}
+
+// Örnek 3 : iki tane int tipinde aralık değerialan ve geriye random bir int döndüren 
+//metotu yazınız
+
+static int RandomDeger(int min,int max){
+
+    Random rnd = new Random();
+    int random = rnd.Next(min,max);
+    return random;
+}
 

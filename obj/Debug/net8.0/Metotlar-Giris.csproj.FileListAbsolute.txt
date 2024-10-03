@@ -12,3 +12,4 @@
 /Users/emrahelis/Metotlar-Giris/obj/Debug/net8.0/Metotlar-Giris.pdb
 /Users/emrahelis/Metotlar-Giris/obj/Debug/net8.0/Metotlar-Giris.genruntimeconfig.cache
 /Users/emrahelis/Metotlar-Giris/obj/Debug/net8.0/ref/Metotlar-Giris.dll
+/Users/emrahelis/Metotlar-Giris/obj/Debug/net8.0/Metotlar-Giris.sourcelink.json
