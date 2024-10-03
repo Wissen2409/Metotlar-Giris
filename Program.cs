@@ -107,7 +107,7 @@ Console.WriteLine(ters1);
 
 // Örnek 1 : İki sayı al ve topla
 
-int toplam = Topla(50,80);
+int toplam = Topla(50, 80);
 Console.WriteLine(toplam);
 
 // Örnek 2 : YariÇap al ve dairenin alanını hesapla
@@ -115,19 +115,33 @@ double alan = AlanHesapla(30);
 Console.WriteLine(alan);
 
 // Örnek 3 : Max ve min değeri al ve random bir değer üret 
-int random = RandomDeger(50,700);
+int random = RandomDeger(50, 700);
 Console.WriteLine(random);
 
+// Örnek 4 : Pi sayısının belirli index numarasını getirmek
+string karakter =PiSayisiKarakter(1);
+Console.WriteLine(karakter);
+
+// Örnek 5 : Girdiğimiz yıl değeri ile bugün arasındaki farkı gün olarak versin
+
+Console.WriteLine(DateTime.MinValue.ToLongDateString());
+double fark = YilFarki(124);
+Console.WriteLine(fark);
 
 
+// Örnek 6 : Char karakteri verip, rakamsal karşılığını geri dönen metot
+int rakamsalKarsilik = KarakterRakamsalKarsilik('Z');
+Console.WriteLine(rakamsalKarsilik);
 
-static string TersCevir(string deger ){
+
+static string TersCevir(string deger)
+{
 
     // parametre olarak aldığı değeri ters çevirip geri döndüren bir metot yazalım
-    string ters ="";
-    for (int i = deger.Length - 1; i >= 0 ; i--)
+    string ters = "";
+    for (int i = deger.Length - 1; i >= 0; i--)
     {
-        ters+=deger[i];
+        ters += deger[i];
     }
 
     // geriye değer döndüren metotlarda return ifadesi kullanılır
@@ -138,9 +152,10 @@ static string TersCevir(string deger ){
 //metot yazınız
 // bu metot, aldığı iki parametreyi birbiri ile toplayıp, toplamı geriye döndürsün
 
-static int Topla(int a,int b){
+static int Topla(int a, int b)
+{
 
-    int toplam = a+b;
+    int toplam = a + b;
     return toplam;
 
 }
@@ -148,21 +163,52 @@ static int Topla(int a,int b){
 // Örnek 2 :  bir tane int tipinde yarı çap değeri alıp, dairenin alanını hesaplayıp 
 //geriye değer döndüren metodu yazınız
 
-static double AlanHesapla(int yaricap){
+static double AlanHesapla(int yaricap)
+{
 
-    double hesap = Math.PI*yaricap*yaricap;
+    double hesap = Math.PI * yaricap * yaricap;
 
-    
+
     return hesap;
 }
 
 // Örnek 3 : iki tane int tipinde aralık değerialan ve geriye random bir int döndüren 
 //metotu yazınız
 
-static int RandomDeger(int min,int max){
+static int RandomDeger(int min, int max)
+{
 
     Random rnd = new Random();
-    int random = rnd.Next(min,max);
+    int random = rnd.Next(min, max);
     return random;
 }
 
+
+// Örnek 4 : 
+// Dışarıdan gönderdiğimiz bir değer ile , Pı sayısının o sayı olan
+//  basamadığını geri döndüren metott
+
+static string PiSayisiKarakter(int index)
+{
+    string pi = Math.PI.ToString();
+    string subString = pi.Substring(index,1);
+    return subString;
+}
+
+
+// Örnek 5 : 
+// yıl değerini giriniz ve bugünden o yıla kadar kaç gün olduğunu söyleyen metot
+static double YilFarki(int yil){
+
+    DateTime time = new DateTime(yil,1,1);
+    DateTime now = DateTime.Now;
+    TimeSpan fark = time-now;
+    return fark.TotalDays;
+}
+
+// Örnek 6 : Girmiş olduğunuz tek karakter dğeerinin, rakamsal karşılığını dönen metot
+static  int KarakterRakamsalKarsilik(char karakter){
+
+    int rakam = Convert.ToInt32(karakter);
+    return rakam;
+}
