@@ -81,6 +81,8 @@ Aynı şekilde metot parametrelerinde de bir genel geçer kural vardır. Metot p
 
 // TersCevir metodu, string parametre alıp, string değer döndürüyor
 
+using System.Collections;
+
 string ters = TersCevir("wissen besiktas");
 string ters1 = TersCevir("Hilltown");
 
@@ -132,6 +134,31 @@ Console.WriteLine(fark);
 // Örnek 6 : Char karakteri verip, rakamsal karşılığını geri dönen metot
 int rakamsalKarsilik = KarakterRakamsalKarsilik('Z');
 Console.WriteLine(rakamsalKarsilik);
+
+// Örnek 7 : Kullanıcından almış olduğumuz değer ile kullanıcı girş mekanizması yapan metot
+
+/*Console.WriteLine("Lütfen kullanıcı adınızı giriniz");
+string userName = Console.ReadLine();
+Console.WriteLine("Şifrenizi Giriniz");
+string password = Console.ReadLine();   
+bool loginIsOk=KullaniciDogrulama(userName,password);
+if(loginIsOk){
+    Console.WriteLine("Giriş başarılı");
+}
+else{
+    Console.WriteLine("Giriş başarısız");
+}*/
+
+
+var arrayList = new ArrayList();
+arrayList.Add("wissen");
+arrayList.Add("besiktaş");
+arrayList.Add("istanbul");
+string[] tersMetin =BasHarfBuyuk(arrayList);
+foreach (string item in tersMetin){
+
+    Console.WriteLine(item);
+}
 
 
 static string TersCevir(string deger)
@@ -211,4 +238,54 @@ static  int KarakterRakamsalKarsilik(char karakter){
 
     int rakam = Convert.ToInt32(karakter);
     return rakam;
+}
+
+// Örnek 7 : Parametre olarak kullanıcı adı ve şifre alan kullanıcı doğrulama yapıp, geriye ? 
+// döndüren bir metot yazınız
+
+// :Metoda parametre olarak gönderilen kullanıcı adı ve şifreyi, kullanıcıdan alınız
+
+// aynı zamanda metotdan dönen değer ile , bir koşul kurup, giriş başarılı yada giriş başarısız 
+// yazdırınız
+
+// ÖDev : Yukarıdaki örnek ödev, yapan arkadaşlar whatsapp grubundan yazsın!!!
+static bool KullaniciDogrulama(string username,string password){
+
+
+    // v1
+    /*bool returnValue =false;
+    if(username=="root" && password=="1010"){
+        returnValue = true;
+    }
+    else{
+        returnValue = false;
+    }
+    return returnValue;
+    */
+    // v2
+    return username=="root" && password=="1010";
+}
+
+
+// bir metoda, array parametre alabilirsin
+// aynı şekilde dizi de geri dönebilirsin
+static string[] BasHarfBuyuk(ArrayList liste){
+
+    // string dizisi alıp, bu dizinin içerisindeki değerlerin
+    // baş harflerini büyük yapıp, metotdan geriye dönelim
+    string[] resultArray = new string[liste.Count];
+    int i =0;
+    foreach (string s in liste){
+
+           string value = s.ToString();
+           string basHarf = value.Substring(0,1);
+           string geriKalan = value.Substring(1,value.Length-1);
+          resultArray[i]=basHarf.ToUpper()+geriKalan;
+          i++;
+          
+    }
+    return resultArray;
+
+    
+
 }
