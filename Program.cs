@@ -149,8 +149,8 @@ else{
     Console.WriteLine("Giriş başarısız");
 }*/
 
-
-var arrayList = new ArrayList();
+// Örnek 8 : Array alıp baş harfleri büyütüp dizi olarak dönen örnek
+/*var arrayList = new ArrayList();
 arrayList.Add("wissen");
 arrayList.Add("besiktaş");
 arrayList.Add("istanbul");
@@ -158,7 +158,24 @@ string[] tersMetin =BasHarfBuyuk(arrayList);
 foreach (string item in tersMetin){
 
     Console.WriteLine(item);
-}
+}*/
+
+// ------------ Geriye değer döndürmeyen metotlar
+
+// Örnek : 9 :
+// Bir dizi alıp, ters çevirip, ekrana yazdıran metot örneği
+/*string[] dizi = {"istanbul", "ankara", "izmir","kayseri","hatay"};
+DiziTersCevir(dizi);
+
+
+// Örnek 10 : 
+
+// bir string alıp, baş harfi büyüten metot örneği yazalım
+string deger ="";
+*/
+
+//HarfiBuyut("kadiköy");
+
 
 
 static string TersCevir(string deger)
@@ -285,7 +302,51 @@ static string[] BasHarfBuyuk(ArrayList liste){
           
     }
     return resultArray;
+}
 
+// Parametre alan ve geriye değer döndürmeyen metot
+
+// Örnek 9 : 
+// parametre olarak dizi alan ve diziyi ters çevirip ekrana yazdıran bir metot yazınız
+static void DiziTersCevir(string[] dizi){
+
+    int index =0;
+    string[] tersDizi = new string[dizi.Length];
+    for (int i = dizi.Length - 1; i >= 0 ; i--)
+    {
+        tersDizi[index]=dizi[i];
+        index++;
+    }
+    // metot void işaret edildiği içim, geriye bir şey dönemem,
+
+    // tersdiziyi ekrana yazdıralım
+
+    foreach (string s in tersDizi){
+        Console.WriteLine(s);
+    }
+
+}
+
+// Örnek 10 : 
+// kendi baş harf büyük metodumuzu yazalım
+// parametre olarak bir string alan ve girmiş olduğumuz string'ini baş harfini büyüten bir metot yazınız
+
+static void HarfiBuyut(string value){
+
+    string ters =  value[0].ToString().ToUpper();
+     for (int i = 1;i<value.Length;i++){
+        ters+=value[i].ToString();
+     }
+
+     Console.WriteLine(ters);
+}
+
+
+// Örnek 11 : Kendi substring mnetodumuzu yazalım
+// bir string değer, bir int tipinde başlangıç değeri ve bir tane de int tipinde, uzunluk değeri alıp
+// kendi substirng metodumnuzu yazalım 
+// Metodun adıda MySubString olsun
+
+static void MySubString(string value){
     
-
 }
