@@ -121,7 +121,7 @@ int random = RandomDeger(50, 700);
 Console.WriteLine(random);
 
 // Örnek 4 : Pi sayısının belirli index numarasını getirmek
-string karakter =PiSayisiKarakter(1);
+string karakter = PiSayisiKarakter(1);
 Console.WriteLine(karakter);
 
 // Örnek 5 : Girdiğimiz yıl değeri ile bugün arasındaki farkı gün olarak versin
@@ -177,6 +177,23 @@ string deger ="";
 //HarfiBuyut("kadiköy");
 
 
+// Örnek 11 : Kendi substring metodumuzu yapıyoruz
+
+MySubString("besiktaş", 0, 1);
+
+
+SortedList liste = new SortedList();
+liste.Add("wissen", "1010");
+liste.Add("ali", "2020");
+liste.Add("mehmet", "3030")
+;
+Giris(liste, "ali", "6060");
+
+
+KelimeSay("ben bugün");
+
+
+HarfSay("araba");
 
 static string TersCevir(string deger)
 {
@@ -235,23 +252,25 @@ static int RandomDeger(int min, int max)
 static string PiSayisiKarakter(int index)
 {
     string pi = Math.PI.ToString();
-    string subString = pi.Substring(index,1);
+    string subString = pi.Substring(index, 1);
     return subString;
 }
 
 
 // Örnek 5 : 
 // yıl değerini giriniz ve bugünden o yıla kadar kaç gün olduğunu söyleyen metot
-static double YilFarki(int yil){
+static double YilFarki(int yil)
+{
 
-    DateTime time = new DateTime(yil,1,1);
+    DateTime time = new DateTime(yil, 1, 1);
     DateTime now = DateTime.Now;
-    TimeSpan fark = time-now;
+    TimeSpan fark = time - now;
     return fark.TotalDays;
 }
 
 // Örnek 6 : Girmiş olduğunuz tek karakter dğeerinin, rakamsal karşılığını dönen metot
-static  int KarakterRakamsalKarsilik(char karakter){
+static int KarakterRakamsalKarsilik(char karakter)
+{
 
     int rakam = Convert.ToInt32(karakter);
     return rakam;
@@ -266,7 +285,8 @@ static  int KarakterRakamsalKarsilik(char karakter){
 // yazdırınız
 
 // ÖDev : Yukarıdaki örnek ödev, yapan arkadaşlar whatsapp grubundan yazsın!!!
-static bool KullaniciDogrulama(string username,string password){
+static bool KullaniciDogrulama(string username, string password)
+{
 
 
     // v1
@@ -280,26 +300,28 @@ static bool KullaniciDogrulama(string username,string password){
     return returnValue;
     */
     // v2
-    return username=="root" && password=="1010";
+    return username == "root" && password == "1010";
 }
 
 
 // bir metoda, array parametre alabilirsin
 // aynı şekilde dizi de geri dönebilirsin
-static string[] BasHarfBuyuk(ArrayList liste){
+static string[] BasHarfBuyuk(ArrayList liste)
+{
 
     // string dizisi alıp, bu dizinin içerisindeki değerlerin
     // baş harflerini büyük yapıp, metotdan geriye dönelim
     string[] resultArray = new string[liste.Count];
-    int i =0;
-    foreach (string s in liste){
+    int i = 0;
+    foreach (string s in liste)
+    {
 
-           string value = s.ToString();
-           string basHarf = value.Substring(0,1);
-           string geriKalan = value.Substring(1,value.Length-1);
-          resultArray[i]=basHarf.ToUpper()+geriKalan;
-          i++;
-          
+        string value = s.ToString();
+        string basHarf = value.Substring(0, 1);
+        string geriKalan = value.Substring(1, value.Length - 1);
+        resultArray[i] = basHarf.ToUpper() + geriKalan;
+        i++;
+
     }
     return resultArray;
 }
@@ -308,20 +330,22 @@ static string[] BasHarfBuyuk(ArrayList liste){
 
 // Örnek 9 : 
 // parametre olarak dizi alan ve diziyi ters çevirip ekrana yazdıran bir metot yazınız
-static void DiziTersCevir(string[] dizi){
+static void DiziTersCevir(string[] dizi)
+{
 
-    int index =0;
+    int index = 0;
     string[] tersDizi = new string[dizi.Length];
-    for (int i = dizi.Length - 1; i >= 0 ; i--)
+    for (int i = dizi.Length - 1; i >= 0; i--)
     {
-        tersDizi[index]=dizi[i];
+        tersDizi[index] = dizi[i];
         index++;
     }
     // metot void işaret edildiği içim, geriye bir şey dönemem,
 
     // tersdiziyi ekrana yazdıralım
 
-    foreach (string s in tersDizi){
+    foreach (string s in tersDizi)
+    {
         Console.WriteLine(s);
     }
 
@@ -331,14 +355,16 @@ static void DiziTersCevir(string[] dizi){
 // kendi baş harf büyük metodumuzu yazalım
 // parametre olarak bir string alan ve girmiş olduğumuz string'ini baş harfini büyüten bir metot yazınız
 
-static void HarfiBuyut(string value){
+static void HarfiBuyut(string value)
+{
 
-    string ters =  value[0].ToString().ToUpper();
-     for (int i = 1;i<value.Length;i++){
-        ters+=value[i].ToString();
-     }
+    string ters = value[0].ToString().ToUpper();
+    for (int i = 1; i < value.Length; i++)
+    {
+        ters += value[i].ToString();
+    }
 
-     Console.WriteLine(ters);
+    Console.WriteLine(ters);
 }
 
 
@@ -347,6 +373,90 @@ static void HarfiBuyut(string value){
 // kendi substirng metodumnuzu yazalım 
 // Metodun adıda MySubString olsun
 
-static void MySubString(string value){
-    
+static void MySubString(string value, int start, int length)
+{
+    string deger = "";
+    for (int i = start; i < value.Length; i++)
+    {
+
+        if (i == length) break;
+        deger += value[i].ToString();
+    }
+
+    Console.WriteLine(deger);
+    // besiktas
 }
+
+//Geriye değer döndürmeyen metotlarda herkes kendine 5 farklı örnek bulup, bu örnelkleri yapsın.
+
+// 5 Örnek yapalım
+
+//Örnek 1 :  Giriş mekanizması gelişmişi : SortedList ile 
+
+static void Giris(SortedList liste, string username, string password)
+{
+    foreach (DictionaryEntry item in liste)
+    {
+
+        if (item.Key.ToString() == username && item.Value.ToString() == password)
+        {
+
+            Console.WriteLine("Giriş başarılı");
+            break;
+        }
+        else
+        {
+            Console.WriteLine("Giriş başarısız");
+            break;
+        }
+    }
+}
+
+
+//Örnek 2 :  Girilen bir cümlede kelime sayısını bulmak
+
+static void KelimeSay(string cumle)
+{
+
+    // bu işi bir metot ile yapalım
+    var kelimeDizi = cumle.Split(' ');
+    Console.WriteLine("Kelime sayısı : {0}", kelimeDizi.Length);
+}
+//Örnek 3 :  Tekrar eden harfleri gösteren uygulama
+static void HarfSay(string kelime)
+{
+
+    SortedList liste = new SortedList();
+    for (int i = 0; i < kelime.Length; i++)
+    {
+
+        string karakter= kelime[i].ToString();
+        if (liste.ContainsKey(karakter))
+        {
+
+            int index = liste.IndexOfKey(karakter);
+            var key = liste.GetKey(index);
+            // key değerine göre value getiren bir metot lazım!!!
+            
+            var value = ((DictionaryEntry)liste[i]).Value;
+            //int value =  int.Parse(editlist.ToString());
+            //value++;
+
+        }
+        else
+        {
+
+            liste.Add(karakter.ToString(), 1);
+        }
+
+
+
+
+    }
+
+
+}
+
+
+
+
