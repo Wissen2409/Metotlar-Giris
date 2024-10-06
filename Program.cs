@@ -82,6 +82,7 @@ Aynı şekilde metot parametrelerinde de bir genel geçer kural vardır. Metot p
 // TersCevir metodu, string parametre alıp, string değer döndürüyor
 
 using System.Collections;
+using System.Security.Cryptography;
 
 string ters = TersCevir("wissen besiktas");
 string ters1 = TersCevir("Hilltown");
@@ -182,18 +183,48 @@ string deger ="";
 MySubString("besiktaş", 0, 1);
 
 
+// Örnek : SortedList içerisinden kullanıcı ve şifre ile giriş
 SortedList liste = new SortedList();
 liste.Add("wissen", "1010");
 liste.Add("ali", "2020");
-liste.Add("mehmet", "3030")
-;
+liste.Add("mehmet", "3030");
+
 Giris(liste, "ali", "6060");
 
 
-KelimeSay("ben bugün");
+// Örnek : Cümle içerisindeki kelimeleri sayan uygulama
+//KelimeSay("ben bugün");
+
+// Örnek : Bir kelime içerisindeki hangi harften kaç tanre olduğunu bulan uygulama
+//HarfSay("aavveegrrwwwedfgggheeghh");
+
+// Örnek : Cümle içerisindeki en uzun kelimeyi bulan uygulama
+//EnUzunKelime("parti iyi");
 
 
-HarfSay("aavveegrrwwwedfgggheeghh");
+// Örnek : Bir dizi içerisindeki sayıların toplamını ve ortalamasını bulan uygulama
+int[] dizi = {10,30,50,10,60,60,70};
+DiziOrtalama(dizi);
+
+
+// Örnek : Sortedlisti içerisindeki duran gün ve çalışma saati verilerini, gün vererek çalışma saati alma uygulamaSI
+SortedList calismaliste = new SortedList();
+calismaliste.Add("Pazartesi", 10);
+calismaliste.Add("Çarşamba",5);
+calismaliste.Add("Cumertesi",2);
+CalismaSaatleri(calismaliste, "Pazartesi");
+
+
+//Örnek : Bir SortedList içerisinde bir arraylist ekleme
+// Birinci sınıf matematikte hangi konu var
+
+SortedList dersListe = new SortedList();
+dersListe.Add("1.Sınıf",new ArrayList(){"Türkçe","Matematik","Güzel Yazı","Beden"});
+dersListe.Add("9.Sınıf",new ArrayList(){"Fizik","Kimya","Edebiyat","Coğrafya"});
+
+
+DersListele(dersListe,"1.Sınıf");
+
 
 static string TersCevir(string deger)
 {
@@ -422,29 +453,24 @@ static void KelimeSay(string cumle)
     var kelimeDizi = cumle.Split(' ');
     Console.WriteLine("Kelime sayısı : {0}", kelimeDizi.Length);
 }
+
 //Örnek 3 :  Tekrar eden harfleri gösteren uygulama
 
 
-// araba
-/*
-Key :  a  Value : 2
-Key :  r  Value : 1
-
-
-
-*/
 static void HarfSay(string kelime)
 {
     SortedList liste = new SortedList();
     for (int i = 0; i < kelime.Length; i++)
     {
         string karakter = kelime[i].ToString();
+
+
         if (liste.ContainsKey(karakter))
         {
             // key değerine göre value getiren bir metot lazım!!!   
             int value = (int)liste[karakter];
             value++;
-            liste[karakter]=value;
+            liste[karakter] = value;
             //int value =  int.Parse(editlist.ToString());
             //value++;
         }
@@ -461,5 +487,70 @@ static void HarfSay(string kelime)
 }
 
 
+// herkes 3 tane kendine konu belirleyip, bu konuda metot yazsın
+// bu metotların nasıl bir metot olacağına siz karar verin
+
+
+// Bir cümledeki en uzun kelimeyi bulan metot yazınız
+
+
+static void EnUzunKelime(string deger)
+{
+    string enUzunKelime = "";
+
+    // split metodu, bir uzun yazıyı, belirli bir karakter vererek bu karakter böler, ve böldüğü parçaları size bir dizi halinde geri döner
+    string[] bolunmusKelime = deger.Split(' ');
+    for (int i = 0; i < bolunmusKelime.Length; i++)
+    {
+
+        // Not : Yeni metot,IsNullOrEmpty metodu, bir string değişkenin değerinin boş olup olmadığını size true false olarak geri döner
+        if (string.IsNullOrEmpty(enUzunKelime))
+        {
+            // kelime boş ise
+            enUzunKelime = bolunmusKelime[i];
+        }
+        else
+        {
+            // kelime dolu ise
+            if (enUzunKelime.Length < bolunmusKelime[i].Length)
+            {
+                enUzunKelime = bolunmusKelime[i];
+            }
+        }
+    }
+    Console.WriteLine("Girmiş olduğunuz cümledeki en uzun kelime {0}", enUzunKelime);
+}
+// Dizi elemanlarının ortalamasını bulan metot
+static void DiziOrtalama(int[] dizi){
+
+    int toplam =0;
+    foreach (int i in dizi){
+        toplam+=i;
+    }
+    Console.WriteLine("Toplam : {0} Ortalama : {1}",toplam,toplam/dizi.Length);
+}
+
+// Hangi gün kaç saat çalışma var
+
+static void CalismaSaatleri(SortedList liste,string gun){
+
+    var calismaSaati = liste[gun].ToString();
+    Console.WriteLine("{0} gününde, {1} çalışma saati var",gun,calismaSaati);
+
+}
+
+// SortedList içerisinde başka bir koleksiyon yerleştirme
+
+static void DersListele(SortedList dersler,string sinif){
+
+
+    // SortedList içerisinde key verip value almak için aşağıdaki kodu yapamnız gerekir.
+    ArrayList dersListe = (ArrayList)dersler[sinif];
+    foreach (string liste in dersListe){
+
+        Console.WriteLine(liste);
+    }
+
+}
 
 
