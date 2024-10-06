@@ -193,7 +193,7 @@ Giris(liste, "ali", "6060");
 KelimeSay("ben bugün");
 
 
-HarfSay("araba");
+HarfSay("aavveegrrwwwedfgggheeghh");
 
 static string TersCevir(string deger)
 {
@@ -423,38 +423,41 @@ static void KelimeSay(string cumle)
     Console.WriteLine("Kelime sayısı : {0}", kelimeDizi.Length);
 }
 //Örnek 3 :  Tekrar eden harfleri gösteren uygulama
+
+
+// araba
+/*
+Key :  a  Value : 2
+Key :  r  Value : 1
+
+
+
+*/
 static void HarfSay(string kelime)
 {
-
     SortedList liste = new SortedList();
     for (int i = 0; i < kelime.Length; i++)
     {
-
-        string karakter= kelime[i].ToString();
+        string karakter = kelime[i].ToString();
         if (liste.ContainsKey(karakter))
         {
-
-            int index = liste.IndexOfKey(karakter);
-            var key = liste.GetKey(index);
-            // key değerine göre value getiren bir metot lazım!!!
-            
-            var value = ((DictionaryEntry)liste[i]).Value;
+            // key değerine göre value getiren bir metot lazım!!!   
+            int value = (int)liste[karakter];
+            value++;
+            liste[karakter]=value;
             //int value =  int.Parse(editlist.ToString());
             //value++;
-
         }
         else
         {
-
             liste.Add(karakter.ToString(), 1);
         }
-
-
-
-
+        // ekrana yazdıralım
     }
-
-
+    foreach (DictionaryEntry item in liste)
+    {
+        Console.WriteLine("{0} > {1}", item.Key, item.Value);
+    }
 }
 
 

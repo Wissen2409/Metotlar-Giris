@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Metotlar-Giris")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+79efad1196fd6b47b29afa928f8a8d28c1473247")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f5c71941b67c06e1d8e136187a3ee981c32b4c45")]
 [assembly: System.Reflection.AssemblyProductAttribute("Metotlar-Giris")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Metotlar-Giris")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
